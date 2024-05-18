@@ -1,16 +1,9 @@
-name: 'Chalice Deployment with Python Version'
-description: 'This Github action allows automated deployment of your Chalice application via Github Actions with a specified Python version.'
+name: 'Chalice Deployment'
+description: 'This Github action allows automated deployment of your Chalice application via Github Actions.'
 author: 'Hendrik Schafer <your-email@example.com>'
 branding:
   icon: cloud
   color: yellow
-inputs:
-  python-version:
-    description: 'Python version to use'
-    required: true
-    default: '3.7'
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  build-args:  # Use build-args to pass the input to Docker
-    PYTHON_VERSION: ${{ inputs.python-version }}
