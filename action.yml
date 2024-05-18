@@ -1,10 +1,16 @@
-# action.yml
-name: 'Chalice Extended Action'
-description: 'This Github action allows automated deployment of your Chalice application via Github Actions.'
-author: 'Janfabian Fabriczek <janfabian@fabriczek.engineer> (Based on previous action of: Chris Oh <chris@5tigerjelly.com>)'
+name: 'Chalice Deployment but you can specify any python version'
+description: 'This Github action deploys your AWS Chalice application via Github Actions with the correct python version.'
+author: 'Hendrik <hendrik@schaefer.be>'
 branding:
   icon: cloud
   color: yellow
+inputs:
+  python-version:
+    description: 'Python version to use'
+    required: true
+    default: '3.12'
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  args:
+    - ${{ inputs.python-version }}
