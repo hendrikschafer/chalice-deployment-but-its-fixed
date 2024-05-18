@@ -35,23 +35,30 @@ on:
   push:
     branches:
       - master
-name: Deploy branch to Chalice
+name: Deploy master branch to Chalice
 jobs:
   deploy:
-    name: deploy
+    name: Deploy
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v2
+    - name: Update Chalice Config
+      run: |
+        sed -i 's/"GROQ_API_KEY": ""/"GROQ_API_KEY": "${{ secrets.GROQ_API_KEY }}"/' .chalice/config.json
+        sed -i 's/"POLYGON_PRIVATE_KEY": ""/"POLYGON_PRIVATE_KEY": "${{ secrets.POLYGON_PRIVATE_KEY }}"/' .chalice/config.json
+        sed -i 's/"POLYGON_PUBLIC_KEY": ""/"POLYGON_PUBLIC_KEY": "${{ secrets.POLYGON_PUBLIC_KEY }}"/' .chalice/config.json
+        sed -i 's/"POLYGON_PUBLIC_ADDRESS": ""/"POLYGON_PUBLIC_ADDRESS": "${{ secrets.POLYGON_PUBLIC_ADDRESS }}"/' .chalice/config.json
     - name: chalice deploy
-      uses: jayef0/chalice-extended-action@release-v0.2.1
+      uses: hendrikschafer/chalice-deployment-but-its-fixed@chalice
+      with:
+        python-version: '3.10' # Specify the Python version here
       env:
-        WORKING_DIRECTORY: backend/chalice
-        REQUIREMENTS_FILE: requirements.prod.txt
+        REQUIREMENTS_FILE: requirements.txt
         OPERATION: deploy
-        STAGE: dev
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_DEFAULT_REGION: us-east-1
+        AWS_DEFAULT_REGION: ap-south-1
+
 ```
 
 ## Functionality
