@@ -48,7 +48,7 @@ jobs:
         sed -i 's/"POLYGON_PRIVATE_KEY": ""/"POLYGON_PRIVATE_KEY": "${{ secrets.POLYGON_PRIVATE_KEY }}"/' .chalice/config.json
         sed -i 's/"POLYGON_PUBLIC_KEY": ""/"POLYGON_PUBLIC_KEY": "${{ secrets.POLYGON_PUBLIC_KEY }}"/' .chalice/config.json
         sed -i 's/"POLYGON_PUBLIC_ADDRESS": ""/"POLYGON_PUBLIC_ADDRESS": "${{ secrets.POLYGON_PUBLIC_ADDRESS }}"/' .chalice/config.json
-    - name: chalice deploy
+    - name: Chalice Deployment but you can specify any python version
       uses: hendrikschafer/chalice-deployment-but-its-fixed@chalice
       with:
         python-version: '3.10' # Specify the Python version here
