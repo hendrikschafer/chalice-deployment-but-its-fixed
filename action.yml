@@ -8,7 +8,7 @@ inputs:
   python-version:
     description: 'Python version to use'
     required: true
-    default: '3.7'
+    default: '3.10'
 runs:
   using: 'docker'
   image: 'Dockerfile'
