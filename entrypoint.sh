@@ -10,6 +10,7 @@ fi
 if [ ! -z "$REQUIREMENTS_FILE" ]
 then
       pip install -r "$REQUIREMENTS_FILE" -t vendor/ --upgrade
+      pip install -r "$REQUIREMENTS_FILE" --upgrade
 fi
 
 if ! [ -z "$PROJECT_DIR" ]
