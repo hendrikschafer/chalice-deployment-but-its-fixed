@@ -1,6 +1,6 @@
 name: 'Chalice Deployment'
 description: 'This Github action allows automated deployment of your Chalice application via Github Actions.'
-author: 'Hendrik Schafer <your-email@example.com>'
+author: 'Hendrik <hendrik@schaefer.be>'
 branding:
   icon: cloud
   color: yellow
