@@ -1,9 +1,10 @@
-FROM python:3.7
+ARG PYTHON_VERSION=3.12
+FROM python:${PYTHON_VERSION}
 
 LABEL version="1.0.0"
-LABEL repository="https://github.com/5tigerjelly/chalice-action"
-LABEL homepage="https://github.com/5tigerjelly/chalice-action"
-LABEL maintainer="Chris Oh <chris@5tigerjelly.com> (https://5tigerjelly.com)"
+LABEL repository="https://github.com/hendrikschafer/chalice-deployment-but-its-fixed"
+LABEL homepage="https://github.com/hendrikschafer/chalice-deployment-but-its-fixed"
+LABEL maintainer="Hendrik <hendrik@schaefer.be> (https://fixmy.cv)"
 
 COPY entrypoint.sh /entrypoint.sh
 
