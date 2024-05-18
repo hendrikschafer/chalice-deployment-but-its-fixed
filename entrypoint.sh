@@ -1,5 +1,7 @@
 #!/bin/sh -l
 
+PYTHON_VERSION=$1
+
 if [ ! -z "$WORKING_DIRECTORY" ]
 then
       cd "$WORKING_DIRECTORY"
