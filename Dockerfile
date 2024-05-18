@@ -1,5 +1,4 @@
-ARG PYTHON_VERSION
-FROM python:${PYTHON_VERSION}
+FROM python:3.10
 
 LABEL version="1.0.0"
 LABEL repository="https://github.com/hendrikschafer/chalice-deployment-but-its-fixed"
