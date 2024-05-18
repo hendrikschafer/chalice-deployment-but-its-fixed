@@ -12,5 +12,5 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  env:
+  build-args:
     PYTHON_VERSION: ${{ inputs.python-version }}
